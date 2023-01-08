@@ -1,0 +1,15 @@
+{% extends "login/index.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h2> Jesteś zalogowany {{ user.username }} </h2>
+        <a href="{% url 'logout' %}">Wyloguj</a>
+
+    {% else %}
+        <a href="{% url 'login' %}">Zaloguj</a>
+        <a href="{% url 'register' %}">Stwórz konto!</a>
+    {% endif %}
+
+
+{% endblock%}
